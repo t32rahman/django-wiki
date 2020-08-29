@@ -1,7 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render, redirect
+
 from markdown2 import markdown
+
+import random
 
 from . import util
 
@@ -80,8 +83,10 @@ def edit(request, title):
     return redirect("entry", title=title)
 
     
+def randomPage(request):
+    entries = util.list_entries()
+    entry = random.choice(entries)
 
-
-
+    return redirect("entry", title=entry)
 
 
