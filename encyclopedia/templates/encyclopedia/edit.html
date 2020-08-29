@@ -1,0 +1,32 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit "{{ name }}"
+{% endblock %}
+
+{% block body %}
+    <h1>New Wiki Entry</h1>
+    {% if alert_message %}
+        <div class="alert alert-warning" style="text-align: center;" role="alert">
+            {{ alert_message }}
+        </div>
+    {% endif %}
+    <div class="form" >
+        <form method="POST">
+            {% csrf_token %}
+            <div class="my-3">
+                <label for="name">Title</label>
+                <input type="text" id="name" name="name" class="form-control" 
+                placeholder="Page Title" value="{{ name }}" disabled/>
+            </div>
+            <div>
+                <label for="text">Text</label>
+                <textarea type="text" id="text" name="text" class="form-control"
+                placeholder="Content of wiki entry." rows="10"
+                >{{ text }}</textarea>
+            </div>
+            <input type="submit" value="Create Entry" class="btn btn-success my-3" />
+        </form>
+    </div>
+
+{% endblock %}

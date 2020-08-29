@@ -19,7 +19,7 @@
                     <a href="{% url 'index' %}">Home</a>
                 </div>
                 <div>
-                    Create New Page
+                    <a href="{% url 'new' %}">Create New Page</a>
                 </div>
                 <div>
                     Random Page
@@ -27,7 +27,7 @@
                 {% block nav %}
                 {% endblock %}
             </div>
-            <div class="main col-lg-10 col-md-9">
+            <div class="main col-lg-9 col-md-8">
                 {% block body %}
                 {% endblock %}
             </div>
